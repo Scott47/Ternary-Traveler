@@ -58,6 +58,13 @@
       "cost": "1.00",
       "PlaceId": 2,
       "id": 5
+    },
+    {
+      "name": "home space",
+      "description": "Where hat is",
+      "cost": "8.00",
+      "PlaceId": 3,
+      "id": 6
     }
   ]
 }

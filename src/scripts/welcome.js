@@ -19,6 +19,8 @@ function welcomeMiraPage () {
 }
 
 
+
+
 function createNewInterestForm() {
     welcomeTravelerContainer.innerHTML = `
         <fieldset class="form-group">
@@ -43,14 +45,21 @@ function createNewInterestForm() {
               name: document.querySelector("#interest-name").value,
               description: document.querySelector("#description").value,
               cost: document.querySelector("#cost").value,
-              PlaceId: +document.querySelector("#location-drop").value,
+              placeId: +document.querySelector("#location-drop").value,
             };
             console.log(mirasNewInterest)
            addNewInterest(mirasNewInterest).then(() => welcomeMiraPage())
 })
 }
 
+
 // createNewInterestForm()
+
+// let select = document.createElement("select")
+
+// places.forEach( (place) => {
+//     select.innerHTML += `<option value=${place.id}>${place.name}</option>`
+// })
 
 
 export { welcomeMiraPage }
