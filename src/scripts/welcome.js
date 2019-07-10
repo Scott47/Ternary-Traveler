@@ -2,7 +2,7 @@ import { getMirasInterest, addNewInterest } from "./api.js"
 
 let welcomeTravelerContainer = document.getElementById("container")
 
-function welcomeTravelerPage () {
+function welcomeMiraPage () {
     welcomeTravelerContainer.innerHTML =`
     <div id="welcome-traveler">
     <h1>Welcome Mira!</h1>
@@ -14,8 +14,11 @@ function welcomeTravelerPage () {
     <h5>France</h5>
     <button id="new-interest">Add New Point of Interest</button>
     </div>
-    `
+    `;
+    document.getElementById("new-interest").addEventListener("click", createNewInterestForm)
+    console.log("help")
 }
+
 
 function createNewInterestForm() {
     welcomeTravelerContainer.innerHTML = `
@@ -34,21 +37,24 @@ function createNewInterestForm() {
             <button id="save-interest">Save interest</button>
         </fieldset>
         `;
-        document.querySelector("#save-interest").addEventListener("click", () => {
+        let newInterest = document.querySelector("#save-interest").addEventListener("click", () => {
+            console.log(newInterest)
             let mirasNewInterest = {
               name: document.querySelector("#interest-name").value,
               cost: document.querySelector("#cost").value,
               location: document.querySelector("#location-drop").value,
             };
-            document.querySelector("save-interest").addEventListener("click", () => {
-                createNewInterestForm();
+            console.log(mirasNewInterest)
+            let newInterestBtn = document.querySelector("save-interest").addEventListener("click", () => {
+                console.log(newInterestBtn)
+            // createNewInterestForm();
             })
             addNewInterest(mirasNewInterest)
             console.log(mirasNewInterest)
 })
 }
 
+// createNewInterestForm()
 
 
-
-export { welcomeTravelerPage }
+export { welcomeMiraPage }
