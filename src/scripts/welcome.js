@@ -1,6 +1,22 @@
 import { getMirasInterest, addNewInterest, getMirasInterestsByPlace } from "./api.js"
 
-getMirasInterestsByPlace(1).then(places => console.log(places))
+
+// getMirasInterestsByPlace().then(interests => {
+//     interests.forEach(italy => {
+
+//     })
+
+// getMirasInterestsByPlace().then(interests => {
+//     interests.forEach(switzerland => {
+
+//     })
+
+// getMirasInterestsByPlace().then(interests => {
+//         interests.forEach(france => {
+
+//     })
+
+
 
 
 
