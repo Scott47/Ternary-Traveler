@@ -19,7 +19,6 @@ import { getMirasInterest, addNewInterest, getMirasInterestsByPlace } from "./ap
 
 
 
-
 let welcomeTravelerContainer = document.getElementById("container")
 
 function welcomeMiraPage () {
