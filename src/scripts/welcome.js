@@ -16,7 +16,6 @@ import { getMirasInterest, addNewInterest, getMirasInterestsByPlace } from "./ap
 
 //     })
 
-let foo = drew
 
 
 
