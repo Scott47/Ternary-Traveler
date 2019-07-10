@@ -1,4 +1,8 @@
-import { getMirasInterest, addNewInterest } from "./api.js"
+import { getMirasInterest, addNewInterest, getMirasInterestsByPlace } from "./api.js"
+
+getMirasInterestsByPlace(1).then(places => console.log(places))
+
+
 
 let welcomeTravelerContainer = document.getElementById("container")
 
@@ -17,9 +21,6 @@ function welcomeMiraPage () {
     `;
     document.getElementById("new-interest").addEventListener("click", createNewInterestForm)
 }
-
-
-
 
 function createNewInterestForm() {
     welcomeTravelerContainer.innerHTML = `
@@ -51,15 +52,20 @@ function createNewInterestForm() {
            addNewInterest(mirasNewInterest).then(() => welcomeMiraPage())
 })
 }
+function interestComponent (oneInterest) {
+        return `
+          <article id="interestElment-${oneInterest.id}">
+                <ul>
+                <li>Name: ${oneInterest.name}</li>
+                <li>Description: ${oneInterest.description}</li>
+                <li>Location: ${oneInterest.location}</li>
+                </ul>
+                <button id="edit-${oneInterest.review}" class="editEventBtn btn-primary">Edit</button>
+                </article>
+            `;
+      };
 
-
-// createNewInterestForm()
-
-// let select = document.createElement("select")
-
-// places.forEach( (place) => {
-//     select.innerHTML += `<option value=${place.id}>${place.name}</option>`
-// })
+// function renderMirasInterests
 
 
 export { welcomeMiraPage }

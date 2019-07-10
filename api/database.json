@@ -37,34 +37,24 @@
       "name": "Park",
       "cost": "8.00",
       "PlaceId": 1,
-      "id": 2
+      "id": 2,
+      "review": ""
     },
     {
       "name": "Winery",
       "cost": "8.00",
       "PlaceId": 1,
-      "id": 3
+      "id": 3,
+      "review": ""
     },
     {
       "name": "Home",
       "description": "Where hat is",
       "cost": "1.00",
       "PlaceId": "1",
-      "id": 4
-    },
-    {
-      "name": "national monument",
-      "description": "prideful place",
-      "cost": "1.00",
-      "PlaceId": 2,
-      "id": 5
-    },
-    {
-      "name": "home space",
-      "description": "Where hat is",
-      "cost": "8.00",
-      "PlaceId": 3,
-      "id": 6
+      "id": 4,
+      "review": ""
     }
+
   ]
 }
