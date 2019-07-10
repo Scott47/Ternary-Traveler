@@ -5,7 +5,7 @@ function getMirasInterest() {
 }
 
 function addNewInterest(newInterest) {
-    return fetch("http://localhost:8088/interest", {
+    return fetch("http://localhost:8088/interests", {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(newInterest)

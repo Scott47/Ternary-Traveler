@@ -16,7 +16,6 @@ function welcomeMiraPage () {
     </div>
     `;
     document.getElementById("new-interest").addEventListener("click", createNewInterestForm)
-    console.log("help")
 }
 
 
@@ -25,32 +24,29 @@ function createNewInterestForm() {
         <fieldset class="form-group">
             <label for="interest-name"><h4>Name: </h4></label>
             <input id="interest-name" type="text" name="interest-name" required>
+            <label for="description"><h4>Description: </h4></label>
+            <input id="description" type="text" name="description" required>
             <label for="cost"><h4>Cost: </h4></label>
             <input id="cost" type="type" name="cost" required>
             <label for="place"><h4>Location: </h4></label>
             <select id="location-drop" name="location-drop">
-                <option value="Italy">Italy</option>
-                <option value="Switzerland">Switzerland</option>
-                <option value="France">France</option>
+                <option value=1>Italy</option>
+                <option value=2>Switzerland</option>
+                <option value=3>France</option>
             </select>
             </label>
             <button id="save-interest">Save interest</button>
         </fieldset>
         `;
-        let newInterest = document.querySelector("#save-interest").addEventListener("click", () => {
-            console.log(newInterest)
+        document.querySelector("#save-interest").addEventListener("click", () => {
             let mirasNewInterest = {
               name: document.querySelector("#interest-name").value,
+              description: document.querySelector("#description").value,
               cost: document.querySelector("#cost").value,
-              location: document.querySelector("#location-drop").value,
+              PlaceId: +document.querySelector("#location-drop").value,
             };
             console.log(mirasNewInterest)
-            let newInterestBtn = document.querySelector("save-interest").addEventListener("click", () => {
-                console.log(newInterestBtn)
-            // createNewInterestForm();
-            })
-            addNewInterest(mirasNewInterest)
-            console.log(mirasNewInterest)
+           addNewInterest(mirasNewInterest).then(() => welcomeMiraPage())
 })
 }
 
