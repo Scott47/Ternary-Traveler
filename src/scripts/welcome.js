@@ -33,5 +33,12 @@ function createNewInterestForm() {
             <button id="save-interest">Save interest</button>
         </fieldset>
         `;
+        document.querySelector("#save-interest").addEventListener("click", () => {
+            let mirasNewInterest = {
+              name: document.querySelector("#interest-name").value,
+              cost: document.querySelector("#cost").value,
+              location: document.querySelector("#location-drop").value,
+            };
+})
 }
 export { welcomeTravelerPage }
