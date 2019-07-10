@@ -1,7 +1,8 @@
+import { getMirasInterest, addNewInterest } from "./api.js"
 
 let welcomeTravelerContainer = document.getElementById("container")
 
-function welcomeTravelerPage (){
+function welcomeTravelerPage () {
     welcomeTravelerContainer.innerHTML =`
     <div id="welcome-traveler">
     <h1>Welcome Mira!</h1>
@@ -39,6 +40,15 @@ function createNewInterestForm() {
               cost: document.querySelector("#cost").value,
               location: document.querySelector("#location-drop").value,
             };
+            document.querySelector("save-interest").addEventListener("click", () => {
+                createNewInterestForm();
+            })
+            addNewInterest(mirasNewInterest)
+            console.log(mirasNewInterest)
 })
 }
+
+
+
+
 export { welcomeTravelerPage }

@@ -1,11 +1,11 @@
 
 function getMirasInterest() {
-    return fetch("http://localhost:3000/interests")
+    return fetch("http://localhost:8088/interests")
     .then( interestData => interestData.json())
 }
 
 function addNewInterest(newInterest) {
-    return fetch("http://localhost:3000/interest", {
+    return fetch("http://localhost:8088/interest", {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(newInterest)
