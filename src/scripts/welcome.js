@@ -11,13 +11,16 @@ function renderMirasInterests() {
         welcomeTravelerContainer.innerHTML += `
         <h3>${place.name}</h3>`
         place.interests.forEach(interestObj => {
-            welcomeTravelerContainer.innerHTML += `<ul id="no-bullets">
+            welcomeTravelerContainer.innerHTML += `
+            <div id ="interest-${interestObj.id}">
+            <ul id="no-bullets">
             <li><strong>Name:</strong> ${interestObj.name}</li>
             <li><strong>Description:</strong> ${interestObj.description}</li>
             <li><strong>Cost:</strong> ${interestObj.cost}</li>
             <li><strong>Review:</strong> ${interestObj.review}</li>
             </ul>
-            <button id="edit-${interestObj.id}" class="editBtn">Edit</button><button class="deleteBtn">Delete</button>`
+            <button id="edit-${interestObj.id}" class="editBtn">Edit</button><button class="deleteBtn">Delete</button>
+            </div>`
         })
         })
         welcomeTravelerContainer.innerHTML += "</div>"
@@ -40,10 +43,10 @@ function editBtnListener() {
      <label for="review"><h4>Review: </h4></label>
      <input id="review" type="text" name="review" value="${oneInterestObj.review} required>
      <button id="save-${oneInterestObj.id}"></button>
-     </fieldset>
+     <fieldset/>
      `;
-let editFieldContainer = document.querySelector(`#save-${oneInterestObj.id}`)
-     console.log(editFieldContainer)
+let editFieldContainer = document.querySelector(`#interest-${oneInterestObj.id}`)
+     editFieldContainer.innerHTML = editForm
  })
  })
 })
