@@ -10,7 +10,7 @@ function getMirasInterestById(id) {
 }
 
 function changeMirasInterests(interestId, InterestObj) {
-    return fetch(`http://localhost:8088/places?_embed=interests/${interestId}`, {
+    return fetch(`http://localhost:8088/interests/${interestId}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(InterestObj)

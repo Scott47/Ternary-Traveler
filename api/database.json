@@ -22,8 +22,8 @@
       "placeId": 1,
       "name": "Local Market",
       "description": "Local market where you can purchase local products and try the local food",
-      "cost": 0,
-      "review": ""
+      "cost": "2.00",
+      "review": "Hills were very steep."
     },
     {
       "id": 2,
