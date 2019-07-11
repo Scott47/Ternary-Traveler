@@ -1,4 +1,4 @@
-import { getMirasPlaces, addNewInterest, changeMirasInterests } from "./api.js"
+import { getMirasPlaces, addNewInterest, changeMirasInterests, getMirasInterestById } from "./api.js"
 
 let welcomeTravelerContainer = document.getElementById("container")
 
@@ -12,7 +12,7 @@ function renderMirasInterests() {
         <h3>${place.name}</h3>`
         place.interests.forEach(interestObj => {
             welcomeTravelerContainer.innerHTML += `
-            <div id ="interest-${interestObj.id}">
+            <div id="interest-${interestObj.id}">
             <ul id="no-bullets">
             <li><strong>Name:</strong> ${interestObj.name}</li>
             <li><strong>Description:</strong> ${interestObj.description}</li>
@@ -35,18 +35,35 @@ function editBtnListener() {
      let editBtnId = event.target.id
      let editBtnIdArray = editBtnId.split("-");
      let editBtnIdNum = editBtnIdArray[1];
- getMirasPlaces(editBtnIdNum).then(oneInterestObj => {
+    getMirasInterestById(editBtnIdNum).then(interest=> {
+    console.log(interest)
      let editForm = `
      <fieldset>
      <label for="cost"><h4>Cost: </h4></label>
-     <input id="cost" type="text" name="cost" value="${oneInterestObj.cost} required>
+     <input id="cost" type="text" name="cost" value="${interest.cost}" required>
      <label for="review"><h4>Review: </h4></label>
-     <input id="review" type="text" name="review" value="${oneInterestObj.review} required>
-     <button id="save-${oneInterestObj.id}"></button>
+     <input id="review" type="text" name="review" value="${interest.review}" required>
+     <button id="save-${interest.id}">save changes</button>
      <fieldset/>
      `;
-let editFieldContainer = document.querySelector(`#interest-${oneInterestObj.id}`)
+
+let editFieldContainer = document.querySelector(`#interest-${interest.id}`)
      editFieldContainer.innerHTML = editForm
+     document.querySelector(`#save-${interest.id}`).addEventListener("click", event => {
+         let saveBtn = event.target.id
+         let editedSave = saveBtn.split("-")
+         let editedBtnId = editedSave[1]
+         let editedInterestObj = {
+            cost: document.querySelector("#cost").value,
+            review: document.querySelector("#review").value
+         }
+    changeMirasInterests(editedBtnId, editedInterestObj).then( () =>{
+        renderMirasInterests()
+    })
+
+
+     })
+
  })
  })
 })
