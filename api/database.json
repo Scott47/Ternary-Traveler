@@ -18,14 +18,6 @@
   ],
   "interests": [
     {
-      "id": 1,
-      "placeId": 1,
-      "name": "Local Market",
-      "description": "Local market where you can purchase local products and try the local food",
-      "cost": "2.00",
-      "review": "Hills were very steep."
-    },
-    {
       "id": 2,
       "placeId": 1,
       "name": "Local Market",

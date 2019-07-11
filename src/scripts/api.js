@@ -18,6 +18,16 @@ function changeMirasInterests(interestId, InterestObj) {
     .then(partOfInterest => partOfInterest.json())
 }
 
+function deleteInterest (id) {
+    return fetch(`http://localhost:8088/interests/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(deleteInterest => deleteInterest.json())
+}
+
 function addNewInterest(newInterest) {
     return fetch("http://localhost:8088/interests", {
         method: "POST",
@@ -28,4 +38,4 @@ function addNewInterest(newInterest) {
 }
 
 
-export { getMirasPlaces, addNewInterest, changeMirasInterests, getMirasInterestById }
+export { getMirasPlaces, addNewInterest, changeMirasInterests, getMirasInterestById, deleteInterest }
