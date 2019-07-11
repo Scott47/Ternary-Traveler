@@ -76,7 +76,13 @@ function deleteBtnListener () {
         let deleteBtn = event.target.id
         let deleted = deleteBtn.split("-")
         let deleteBtnId = deleted[1]
-        deleteInterest(deleteBtnId)
+        let del=confirm("Are you sure you want to delete this record?");
+        if (del===true) {
+           alert ("interest deleted")
+           deleteInterest(deleteBtnId)
+        } else{
+            alert("interest Not Deleted")
+        }
         })
     })
 }
