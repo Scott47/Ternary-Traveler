@@ -4,11 +4,6 @@ function getMirasPlaces() {
     .then( placeData=> placeData.json())
 }
 
-function getMirasInterestsByPlace(placeId) {
-    return fetch(`http://localhost:8088/interests?placeId=${placeId}`)
-    .then( interestData => interestData.json())
-}
-
 function addNewInterest(newInterest) {
     return fetch("http://localhost:8088/interests", {
         method: "POST",
