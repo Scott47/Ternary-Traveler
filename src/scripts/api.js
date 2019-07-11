@@ -1,7 +1,7 @@
 
-function getMirasInterest() {
-    return fetch("http://localhost:8088/interests")
-    .then( interestData => interestData.json())
+function getMirasPlaces() {
+    return fetch("http://localhost:8088/places?_embed=interests")
+    .then( placeData=> placeData.json())
 }
 
 function getMirasInterestsByPlace(placeId) {
@@ -19,4 +19,4 @@ function addNewInterest(newInterest) {
 }
 
 
-export { getMirasInterest, addNewInterest, getMirasInterestsByPlace }
+export { getMirasPlaces, addNewInterest, getMirasInterestsByPlace }
