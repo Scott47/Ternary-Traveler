@@ -1,4 +1,4 @@
-import { getMirasPlaces, addNewInterest, getMirasInterestsByPlace } from "./api.js"
+import { getMirasPlaces, addNewInterest, changeMirasInterests } from "./api.js"
 
 let welcomeTravelerContainer = document.getElementById("container")
 
@@ -9,21 +9,45 @@ function renderMirasInterests() {
     getMirasPlaces().then(placeObjArray => {
         placeObjArray.forEach(place => {
         welcomeTravelerContainer.innerHTML += `
-        <h5>${place.name}</h5>`
+        <h3>${place.name}</h3>`
         place.interests.forEach(interestObj => {
             welcomeTravelerContainer.innerHTML += `<ul id="no-bullets">
             <li><strong>Name:</strong> ${interestObj.name}</li>
             <li><strong>Description:</strong> ${interestObj.description}</li>
             <li><strong>Cost:</strong> ${interestObj.cost}</li>
             <li><strong>Review:</strong> ${interestObj.review}</li>
-            </ul>`
+            </ul>
+            <button id="edit-${interestObj.id}" class="editBtn">Edit</button><button class="deleteBtn">Delete</button>`
         })
         })
         welcomeTravelerContainer.innerHTML += "</div>"
         document.querySelector("#mira-travels").addEventListener("click", createNewInterestForm)
+        editBtnListener()
     })
 }
-
+function editBtnListener() {
+    let editBtnArray = document.querySelectorAll(".editBtn")
+ editBtnArray.forEach(editBtn => {
+     editBtn.addEventListener("click", () => {
+     let editBtnId = event.target.id
+     let editBtnIdArray = editBtnId.split("-");
+     let editBtnIdNum = editBtnIdArray[1];
+ getMirasPlaces(editBtnIdNum).then(oneInterestObj => {
+     let editForm = `
+     <fieldset>
+     <label for="cost"><h4>Cost: </h4></label>
+     <input id="cost" type="text" name="cost" value="${oneInterestObj.cost} required>
+     <label for="review"><h4>Review: </h4></label>
+     <input id="review" type="text" name="review" value="${oneInterestObj.review} required>
+     <button id="save-${oneInterestObj.id}"></button>
+     </fieldset>
+     `;
+let editFieldContainer = document.querySelector(`#save-${oneInterestObj.id}`)
+     console.log(editFieldContainer)
+ })
+ })
+})
+}
 
 function createNewInterestForm() {
     welcomeTravelerContainer.innerHTML = `
@@ -61,39 +85,5 @@ function createNewInterestForm() {
 
 export { renderMirasInterests }
 
-
-
-
-
-// getMirasInterestsByPlace().then(interests => {
-//     interests.forEach(italy => {
-
-//     })
-
-// getMirasInterestsByPlace().then(interests => {
-//     interests.forEach(switzerland => {
-
-//     })
-
-// getMirasInterestsByPlace().then(interests => {
-//         interests.forEach(france => {
-
-//     })
-
-
-// function interestComponent (oneInterest) {
-//         return `
-//           <article id="interestElment-${oneInterest.id}">
-//                 <ul>
-//                 <li>Name: ${oneInterest.name}</li>
-//                 <li>Description: ${oneInterest.description}</li>
-//                 <li>Location: ${oneInterest.location}</li>
-//                 </ul>
-//                 <button id="edit-${oneInterest.review}" class="editEventBtn btn-primary">Edit</button>
-//                 </article>
-//             `;
-//       };
-
-// function renderMirasInterests
 
 
