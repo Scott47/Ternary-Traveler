@@ -1,12 +1,21 @@
 
-function getMirasInterest() {
-    return fetch("http://localhost:8088/interests")
-    .then( interestData => interestData.json())
+function getMirasPlaces() {
+    return fetch("http://localhost:8088/places?_embed=interests")
+    .then( placeData => placeData.json())
 }
 
-function getMirasInterestsByPlace(placeId) {
-    return fetch(`http://localhost:8088/interests?placeId=${placeId}`)
-    .then( interestData => interestData.json())
+function getMirasInterestById(id) {
+    return fetch(`http://localhost:8088/interests/${id}`)
+    .then( oneInterest => oneInterest.json())
+}
+
+function changeMirasInterests(interestId, InterestObj) {
+    return fetch(`http://localhost:8088/interests/${interestId}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(InterestObj)
+})
+    .then(partOfInterest => partOfInterest.json())
 }
 
 function addNewInterest(newInterest) {
@@ -19,4 +28,4 @@ function addNewInterest(newInterest) {
 }
 
 
-export { getMirasInterest, addNewInterest, getMirasInterestsByPlace }
+export { getMirasPlaces, addNewInterest, changeMirasInterests, getMirasInterestById }
