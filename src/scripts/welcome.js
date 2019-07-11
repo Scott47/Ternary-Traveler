@@ -1,4 +1,4 @@
-import { getMirasPlaces, addNewInterest, changeMirasInterests, getMirasInterestById } from "./api.js"
+import { getMirasPlaces, addNewInterest, changeMirasInterests, getMirasInterestById, deleteInterest } from "./api.js"
 
 let welcomeTravelerContainer = document.getElementById("container")
 
@@ -19,13 +19,15 @@ function renderMirasInterests() {
             <li><strong>Cost:</strong> ${interestObj.cost}</li>
             <li><strong>Review:</strong> ${interestObj.review}</li>
             </ul>
-            <button id="edit-${interestObj.id}" class="editBtn">Edit</button><button class="deleteBtn">Delete</button>
+            <button id="edit-${interestObj.id}" class="editBtn">Edit</button>
+            <button id="delete-${interestObj.id}" class="deleteBtn">Delete</button>
             </div>`
         })
         })
         welcomeTravelerContainer.innerHTML += "</div>"
         document.querySelector("#mira-travels").addEventListener("click", createNewInterestForm)
         editBtnListener()
+        deleteBtnListener ()
     })
 }
 function editBtnListener() {
@@ -60,13 +62,29 @@ let editFieldContainer = document.querySelector(`#interest-${interest.id}`)
     changeMirasInterests(editedBtnId, editedInterestObj).then( () =>{
         renderMirasInterests()
     })
-
-
-     })
-
+    })
  })
  })
 })
+}
+
+function deleteBtnListener () {
+    let deleteBtnArray = document.querySelectorAll(".deleteBtn")
+    console.log(deleteBtnArray)
+    deleteBtnArray.forEach(btn => {
+        btn.addEventListener("click", () => {
+        let deleteBtn = event.target.id
+        let deleted = deleteBtn.split("-")
+        let deleteBtnId = deleted[1]
+        let del=confirm("Are you sure you want to delete this record?");
+        if (del===true) {
+           alert ("interest deleted")
+           deleteInterest(deleteBtnId)
+        } else{
+            alert("interest Not Deleted")
+        }
+        })
+    })
 }
 
 function createNewInterestForm() {

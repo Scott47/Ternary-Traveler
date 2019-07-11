@@ -18,41 +18,10 @@
   ],
   "interests": [
     {
-      "id": 1,
-      "placeId": 1,
-      "name": "Local Market",
-      "description": "Local market where you can purchase local products and try the local food",
-      "cost": "2.00",
-      "review": "Hills were very steep."
-    },
-    {
-      "id": 2,
-      "placeId": 1,
-      "name": "Local Market",
-      "description": "Local market where you can purchase local products and try the local food",
-      "cost": 0,
-      "review": "You can definitely get things for a lower price if you are willing to bargain!"
-    },
-    {
-      "name": "Park",
-      "cost": "8.00",
-      "PlaceId": 1,
-      "id": 3,
-      "review": ""
-    },
-    {
       "name": "Winery",
       "cost": "8.00",
       "PlaceId": 1,
       "id": 4,
-      "review": ""
-    },
-    {
-      "name": "Home",
-      "description": "Where hat is",
-      "cost": "1.00",
-      "PlaceId": "1",
-      "id": 5,
       "review": ""
     },
     {
